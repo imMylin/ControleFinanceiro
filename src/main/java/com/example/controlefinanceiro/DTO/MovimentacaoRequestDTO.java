@@ -20,7 +20,8 @@ public class MovimentacaoRequestDTO {
     @NotNull
     private TipoMovimentacao tipoMovimentacao;
 
-    @Positive
+    @NotNull(message = "O valor é obrigatório")
+    @Positive(message = "O valor deve ser maior que zero")
     private BigDecimal valor;
 
     @NotNull

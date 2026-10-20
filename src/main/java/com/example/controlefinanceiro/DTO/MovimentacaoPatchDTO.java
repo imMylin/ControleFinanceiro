@@ -2,6 +2,7 @@ package com.example.controlefinanceiro.DTO;
 
 import com.example.controlefinanceiro.Enum.CategoriaGasto;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
+import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,7 +10,10 @@ import java.time.LocalDate;
 public class MovimentacaoPatchDTO {
 
     private LocalDate data;
+
+    @Positive(message = "O valor deve ser maior que zero")
     private BigDecimal valor;
+
     private String descricao;
     private TipoMovimentacao tipoMovimentacao;
     private CategoriaGasto categoriaGasto;

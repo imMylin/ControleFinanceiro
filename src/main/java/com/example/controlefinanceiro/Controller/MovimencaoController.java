@@ -47,7 +47,7 @@ public class MovimencaoController {
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<MovimentacaoResponseDTO> atualizarParcial(@PathVariable Long id, @RequestBody MovimentacaoPatchDTO patchDTO ){
+    public ResponseEntity<MovimentacaoResponseDTO> atualizarParcial(@PathVariable Long id, @Valid @RequestBody MovimentacaoPatchDTO patchDTO ){
         return ResponseEntity.ok(movimentacaoService.atualizarParcial(id, patchDTO));
     }
 }
