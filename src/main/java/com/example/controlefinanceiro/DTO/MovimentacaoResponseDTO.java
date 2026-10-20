@@ -2,7 +2,7 @@ package com.example.controlefinanceiro.DTO;
 
 import com.example.controlefinanceiro.Enum.CategoriaGasto;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
-import org.springframework.cglib.core.Local;
+import com.example.controlefinanceiro.Model.MovimentacaoFinanceira;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,13 +16,13 @@ public class MovimentacaoResponseDTO {
     private CategoriaGasto categoriaGasto;
     private String descricao;
 
-    public MovimentacaoResponseDTO(Long id, BigDecimal valor, LocalDate data, TipoMovimentacao tipoMovimentacao, CategoriaGasto categoriaGasto, String descricao) {
-        this.id = id;
-        this.valor = valor;
-        this.data = data;
-        this.tipoMovimentacao = tipoMovimentacao;
-        this.categoriaGasto = categoriaGasto;
-        this.descricao = descricao;
+    public MovimentacaoResponseDTO(MovimentacaoFinanceira movimentacao) {
+        this.id = movimentacao.getId();
+        this.valor = movimentacao.getValor();
+        this.data = movimentacao.getData();
+        this.tipoMovimentacao = movimentacao.getTipo();
+        this.categoriaGasto = movimentacao.getCategoria();
+        this.descricao = movimentacao.getDescricao();
     }
 
     public Long getId() {return id;}
