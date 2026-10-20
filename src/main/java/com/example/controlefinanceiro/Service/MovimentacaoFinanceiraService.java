@@ -8,6 +8,8 @@ import com.example.controlefinanceiro.Model.MovimentacaoFinanceira;
 import com.example.controlefinanceiro.Repository.MovimentacaoFinanceiraRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class MovimentacaoFinanceiraService {
 
@@ -82,6 +84,13 @@ public class MovimentacaoFinanceiraService {
 
         MovimentacaoFinanceira movimentacaoAtualizada =  movimentacaoFinanceiraRepository.save(movimentacaoFinanceira);
         return new MovimentacaoResponseDTO(movimentacaoAtualizada);
+    }
+
+    public List<MovimentacaoResponseDTO> listar(){
+
+        List <MovimentacaoFinanceira> lista = movimentacaoFinanceiraRepository.findAll();
+
+        return lista.stream().map(MovimentacaoResponseDTO::new).toList();
     }
 
 }
