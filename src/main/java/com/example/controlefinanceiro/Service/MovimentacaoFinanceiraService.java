@@ -3,11 +3,14 @@ package com.example.controlefinanceiro.Service;
 import com.example.controlefinanceiro.DTO.MovimentacaoPatchDTO;
 import com.example.controlefinanceiro.DTO.MovimentacaoRequestDTO;
 import com.example.controlefinanceiro.DTO.MovimentacaoResponseDTO;
+import com.example.controlefinanceiro.DTO.Relatorio.ResumoFinanceiroResponseDTO;
+import com.example.controlefinanceiro.Enum.TipoMovimentacao;
 import com.example.controlefinanceiro.Exception.MovimentacaoNaoEncontrada;
 import com.example.controlefinanceiro.Model.MovimentacaoFinanceira;
 import com.example.controlefinanceiro.Repository.MovimentacaoFinanceiraRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -92,5 +95,7 @@ public class MovimentacaoFinanceiraService {
 
         return lista.stream().map(MovimentacaoResponseDTO::new).toList();
     }
+
+
 
 }
