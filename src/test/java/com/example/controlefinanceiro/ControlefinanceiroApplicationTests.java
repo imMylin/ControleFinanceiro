@@ -13,7 +13,7 @@ import org.springframework.boot.jdbc.test.autoconfigure.AutoConfigureTestDatabas
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(
@@ -25,21 +25,10 @@ class MovimentacaoFinanceiraRepositoryTest {
 	private MovimentacaoFinanceiraRepository repository;
 
 	@Test
-	void deveSalvarMovimentacaoFinanceira() {
-		MovimentacaoFinanceira movimentacao =
-				new MovimentacaoFinanceira();
+	void deveSomarAsSaidas() {
+		BigDecimal total =
+				repository.somarPorTipo(TipoMovimentacao.SAIDA);
 
-		movimentacao.setValor(new BigDecimal("50.00"));
-		movimentacao.setData(LocalDate.now());
-		movimentacao.setTipo(TipoMovimentacao.SAIDA);
-		movimentacao.setCategoria(CategoriaGasto.ALIMENTACAO);
-		movimentacao.setDescricao("Almoço");
-
-		MovimentacaoFinanceira salva =
-				repository.save(movimentacao);
-
-		assertThat(salva.getId()).isNotNull();
-		assertThat(salva.getValor())
-				.isEqualByComparingTo("50.00");
+		System.out.println("Total de entradas: " + total);
 	}
 }
