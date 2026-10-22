@@ -1,8 +1,8 @@
 package com.example.controlefinanceiro.Controller;
 
 import com.example.controlefinanceiro.DTO.Relatorio.RelatorioCategoriaDTO;
+import com.example.controlefinanceiro.DTO.Relatorio.RelatorioPeriodoDTO;
 import com.example.controlefinanceiro.DTO.Relatorio.ResumoFinanceiroResponseDTO;
-import com.example.controlefinanceiro.Enum.CategoriaGasto;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
 import com.example.controlefinanceiro.Service.RelatorioFinanceiroService;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -29,8 +30,14 @@ public RelatorioFinanceiroController(RelatorioFinanceiroService service) {
     }
 
     @GetMapping("/categorias")
-
     public ResponseEntity<List<RelatorioCategoriaDTO>> obterResumoPorCategorias(@RequestParam TipoMovimentacao tipo) {
         return ResponseEntity.ok(service.obterResumoPorCategoria(tipo));
     }
+
+    @GetMapping("/periodo")
+    public ResponseEntity<RelatorioPeriodoDTO> obterResumoPorPeriodo(@RequestParam LocalDate dataInicial, @RequestParam LocalDate dataFinal) {
+        return ResponseEntity.ok(service.obterResumoPorPeriodo(dataInicial, dataFinal));
+    }
+
+
 }
