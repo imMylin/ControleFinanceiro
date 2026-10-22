@@ -14,16 +14,16 @@ import java.util.List;
 public interface MovimentacaoFinanceiraRepository extends JpaRepository<MovimentacaoFinanceira, Long> {
 
     @Query("""
-           SELECT SUM(m.valor)
-           FROM MovimentacaoFinanceira m
-           WHERE m.tipo = :tipo
-           """)
+       SELECT COALESCE(SUM(m.valor), 0)
+       FROM MovimentacaoFinanceira m
+       WHERE m.tipo = :tipo
+       """)
     BigDecimal somarPorTipo(
             @Param("tipo") TipoMovimentacao tipo);
 
 
     @Query("""
-           SELECT m.categoria, SUM(m.valor)
+           SELECT m.categoria, COALESCE(SUM(m.valor), 0)
            FROM MovimentacaoFinanceira m
            WHERE m.tipo = :tipo
            GROUP BY m.categoria
@@ -31,7 +31,7 @@ public interface MovimentacaoFinanceiraRepository extends JpaRepository<Moviment
     List<Object[]> somarPorCategoria(@Param("tipo") TipoMovimentacao tipo);
 
     @Query("""
-           SELECT SUM(m.valor)
+           SELECT COALESCE(SUM(m.valor),0)
            FROM MovimentacaoFinanceira m
            WHERE m.tipo = :tipo AND m.data BETWEEN :data_inicial AND :data_final         
            """)
