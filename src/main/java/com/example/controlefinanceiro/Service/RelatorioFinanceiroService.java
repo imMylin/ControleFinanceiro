@@ -26,17 +26,7 @@ public class RelatorioFinanceiroService {
     public ResumoFinanceiroResponseDTO obterResumo(){
 
         BigDecimal entradas = movimentacaoFinanceiraRepository.somarPorTipo(TipoMovimentacao.ENTRADA);
-
         BigDecimal saidas = movimentacaoFinanceiraRepository.somarPorTipo(TipoMovimentacao.SAIDA);
-
-        if(entradas == null){
-            entradas = BigDecimal.ZERO;
-        }
-
-        if(saidas == null){
-            saidas = BigDecimal.ZERO;
-        }
-
         BigDecimal saldo = entradas.subtract(saidas);
 
         return new ResumoFinanceiroResponseDTO(entradas,saidas,saldo);
@@ -58,6 +48,10 @@ public class RelatorioFinanceiroService {
 
     public RelatorioPeriodoDTO obterResumoPorPeriodo(LocalDate data_inicial, LocalDate data_final){
 
+
+        if(data_inicial == null){data_inicial = LocalDate.now();}
+        if(data_final == null){data_final = LocalDate.now();}
+
         if (data_inicial.isAfter(data_final)) {
             throw new IllegalArgumentException(
                     "A data inicial não pode ser posterior à data final."
@@ -65,15 +59,8 @@ public class RelatorioFinanceiroService {
         }
 
 
-        if(data_inicial == null){data_inicial = LocalDate.now();}
-        if(data_final == null){data_final = LocalDate.now();}
-
         BigDecimal entradas = movimentacaoFinanceiraRepository.somarPorPeriodo(TipoMovimentacao.ENTRADA, data_inicial, data_final);
         BigDecimal saidas = movimentacaoFinanceiraRepository.somarPorPeriodo(TipoMovimentacao.SAIDA, data_inicial, data_final);
-
-        if(entradas == null){entradas = BigDecimal.ZERO;}
-        if(saidas == null){saidas = BigDecimal.ZERO;}
-
         BigDecimal saldo = entradas.subtract(saidas);
 
         return new RelatorioPeriodoDTO(entradas,saidas,saldo);
