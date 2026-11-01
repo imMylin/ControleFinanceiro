@@ -1,12 +1,9 @@
 package com.example.controlefinanceiro.Service;
 
-import com.example.controlefinanceiro.DTO.MovimentacaoResponseDTO;
 import com.example.controlefinanceiro.DTO.SalarioResponseDTO;
 import com.example.controlefinanceiro.DTO.SaldoSalarioResponseDTO;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
-import com.example.controlefinanceiro.Exception.MovimentacaoNaoEncontrada;
 import com.example.controlefinanceiro.Exception.SalarioNaoEncontradoException;
-import com.example.controlefinanceiro.Model.MovimentacaoFinanceira;
 import com.example.controlefinanceiro.Model.Salario;
 import com.example.controlefinanceiro.Repository.MovimentacaoFinanceiraRepository;
 import com.example.controlefinanceiro.Repository.SalarioRepository;
@@ -21,8 +18,8 @@ import java.util.Optional;
 @Service
 public class SalarioService {
 
-    private SalarioRepository salarioRepository;
-    private MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository;
+    private final SalarioRepository salarioRepository;
+    private final MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository;
 
     public SalarioService(SalarioRepository salarioRepository,  MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository) {
         this.salarioRepository = salarioRepository;
