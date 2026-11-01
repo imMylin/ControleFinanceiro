@@ -4,7 +4,6 @@ import com.example.controlefinanceiro.DTO.SalarioRequestDTO;
 import com.example.controlefinanceiro.DTO.SalarioResponseDTO;
 import com.example.controlefinanceiro.DTO.SaldoSalarioResponseDTO;
 import com.example.controlefinanceiro.Model.Salario;
-import com.example.controlefinanceiro.Repository.SalarioRepository;
 import com.example.controlefinanceiro.Service.SalarioService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -44,6 +43,7 @@ public class SalarioController {
         salarioService.deletar(id);
         return ResponseEntity.noContent().build();
     }
+
     @GetMapping
     public List<SalarioResponseDTO> listarSalarios(){
         return salarioService.listar();
