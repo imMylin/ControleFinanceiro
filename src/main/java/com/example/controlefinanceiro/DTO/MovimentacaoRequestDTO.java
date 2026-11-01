@@ -4,6 +4,7 @@ import com.example.controlefinanceiro.Enum.CategoriaGasto;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
@@ -11,7 +12,7 @@ import java.time.LocalDate;
 
 public class MovimentacaoRequestDTO {
 
-    @NotBlank
+    @NotBlank(message = "A descrição é obrigatória")
     private String descricao;
 
     @NotNull
@@ -24,7 +25,8 @@ public class MovimentacaoRequestDTO {
     @Positive(message = "O valor deve ser maior que zero")
     private BigDecimal valor;
 
-    @NotNull
+    @NotNull(message = "A data é obrigatória")
+    @PastOrPresent(message = "A data não pode ser futura")
     private LocalDate data;
 
 
