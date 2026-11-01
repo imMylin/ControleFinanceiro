@@ -1,16 +1,24 @@
 package com.example.controlefinanceiro.Service;
 
+import com.example.controlefinanceiro.DTO.MovimentacaoResponseDTO;
+import com.example.controlefinanceiro.DTO.SalarioResponseDTO;
 import com.example.controlefinanceiro.DTO.SaldoSalarioResponseDTO;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
+import com.example.controlefinanceiro.Exception.MovimentacaoNaoEncontrada;
+import com.example.controlefinanceiro.Exception.SalarioNaoEncontradoException;
+import com.example.controlefinanceiro.Model.MovimentacaoFinanceira;
 import com.example.controlefinanceiro.Model.Salario;
 import com.example.controlefinanceiro.Repository.MovimentacaoFinanceiraRepository;
 import com.example.controlefinanceiro.Repository.SalarioRepository;
+import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.YearMonth;
+import java.util.List;
 import java.util.Optional;
 
+@Service
 public class SalarioService {
 
     private SalarioRepository salarioRepository;
@@ -52,28 +60,45 @@ public class SalarioService {
 
     }
 
-    public SaldoSalarioResponseDTO calcularSaldoMensal(LocalDate dataReferencia){
+    public SaldoSalarioResponseDTO calcularSaldoMensal(LocalDate dataReferencia) {
 
         if (dataReferencia == null) {throw new IllegalArgumentException("A data de referência é obrigatória.");}
 
-        Optional<Salario> salarioEncontrado = buscarPorDataDeReferencia(dataReferencia);
-
-        if (salarioEncontrado.isEmpty()) {
-            throw new IllegalArgumentException("Não existe salário cadastrado para esse mês.");
-        }
-
-        LocalDate ultimoDia = dataReferencia.with(java.time.temporal.TemporalAdjusters.lastDayOfMonth());
         LocalDate primeiroDia = dataReferencia.with(java.time.temporal.TemporalAdjusters.firstDayOfMonth());
 
-        BigDecimal saidas = movimentacaoFinanceiraRepository.somarPorPeriodo(TipoMovimentacao.SAIDA,  primeiroDia, ultimoDia);
+        LocalDate ultimoDia = dataReferencia.with(java.time.temporal.TemporalAdjusters.lastDayOfMonth());
+
+        Optional<Salario> salarioEncontrado = buscarPorDataDeReferencia(primeiroDia);
+
+        if (salarioEncontrado.isEmpty()) {throw new IllegalArgumentException("Não existe salário cadastrado para esse mês.");}
+
+        Salario salario = salarioEncontrado.get();
+
+        BigDecimal saidas = movimentacaoFinanceiraRepository.somarPorPeriodo(TipoMovimentacao.SAIDA, primeiroDia, ultimoDia);
 
         if (saidas == null) {saidas = BigDecimal.ZERO;}
 
-        Salario salario =  salarioEncontrado.get();
-
         BigDecimal saldoRestante = salario.getValor().subtract(saidas);
 
-        return new SaldoSalarioResponseDTO(dataReferencia, salario.getValor(), saidas, saldoRestante );
+        return new SaldoSalarioResponseDTO(primeiroDia, salario.getValor(), saidas, saldoRestante);
     }
+
+    public List<SalarioResponseDTO> listar(){
+
+        List <Salario> lista = salarioRepository.findAll();
+
+        return lista.stream().map(salario -> new SalarioResponseDTO(salario.getId(), salario.getValor(), salario.getDataDeReferencia())).toList();
+    }
+
+    public void deletar (Long idSalario){
+
+
+        if (idSalario == null || !salarioRepository.existsById(idSalario)) {
+            throw new SalarioNaoEncontradoException("Salário não encontrado.");
+        }
+
+        salarioRepository.deleteById(idSalario);
+    }
+
 
 }
