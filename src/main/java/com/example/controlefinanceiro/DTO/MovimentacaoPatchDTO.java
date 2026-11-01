@@ -2,6 +2,9 @@ package com.example.controlefinanceiro.DTO;
 
 import com.example.controlefinanceiro.Enum.CategoriaGasto;
 import com.example.controlefinanceiro.Enum.TipoMovimentacao;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
@@ -9,13 +12,15 @@ import java.time.LocalDate;
 
 public class MovimentacaoPatchDTO {
 
+    @PastOrPresent(message = "A data não pode ser futura")
     private LocalDate data;
 
     @Positive(message = "O valor deve ser maior que zero")
     private BigDecimal valor;
 
-    private String descricao;
+    @NotBlank(message = "A descrição não pode ser vazia")    private String descricao;
     private TipoMovimentacao tipoMovimentacao;
+
     private CategoriaGasto categoriaGasto;
 
     public LocalDate getData() {
