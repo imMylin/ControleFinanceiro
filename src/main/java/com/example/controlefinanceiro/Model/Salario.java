@@ -15,6 +15,8 @@ public class Salario {
 
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal valor;
+
+    @Column(nullable = false, unique = true)
     private LocalDate dataDeReferencia;
 
     public Salario(BigDecimal valor, LocalDate dataDeReferencia){
