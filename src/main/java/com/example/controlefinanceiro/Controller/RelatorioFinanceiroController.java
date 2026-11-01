@@ -35,9 +35,13 @@ public RelatorioFinanceiroController(RelatorioFinanceiroService service) {
     }
 
     @GetMapping("/periodo")
-    public ResponseEntity<RelatorioPeriodoDTO> obterResumoPorPeriodo(@RequestParam LocalDate dataInicial, @RequestParam LocalDate dataFinal) {
-        return ResponseEntity.ok(service.obterResumoPorPeriodo(dataInicial, dataFinal));
-    }
+    public ResponseEntity<RelatorioPeriodoDTO> obterResumoPorPeriodo(
+            @RequestParam(required = false) LocalDate dataInicial,
+            @RequestParam(required = false) LocalDate dataFinal) {
 
+        return ResponseEntity.ok(
+                service.obterResumoPorPeriodo(dataInicial, dataFinal)
+        );
+    }
 
 }
