@@ -16,7 +16,7 @@ import java.util.List;
 @Service
 public class RelatorioFinanceiroService {
 
-    private MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository;
+    private final MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository;
 
     public RelatorioFinanceiroService(
             MovimentacaoFinanceiraRepository movimentacaoFinanceiraRepository) {
