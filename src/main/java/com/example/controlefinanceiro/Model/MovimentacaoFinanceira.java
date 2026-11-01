@@ -9,20 +9,28 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "movimentacao_financeira")
 public class MovimentacaoFinanceira {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal valor;
+
+    @Column(nullable = false)
     private LocalDate data;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private TipoMovimentacao tipo;
 
+    @Column(nullable = false)
     private String descricao;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private CategoriaGasto categoria;
 
     public BigDecimal getValor() {return valor;}
