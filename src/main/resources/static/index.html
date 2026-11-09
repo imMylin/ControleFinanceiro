@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Controle Financeiro</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#inicio">Visão Geral</a></li>
+        <li><a href="#movimentacoes">Movimentações</a></li>
+        <li><a href="#relatorios">Relatórios</a></li>
+    </ul>
+</nav>
+
+<main id="inicio">
+
+    <h1>Visão Geral</h1>
+
+    <div class = "cards-container">
+
+        <section class = "card">
+            <h2>Total de Entradas</h2>
+            <p id="totalEntradas">R$ 0,00</p>
+        </section>
+
+        <section class = "card">
+            <h2>Total de Saídas</h2>
+            <p id="totalSaidas">R$ 0,00</p>
+        </section>
+
+        <section class = "card">
+            <h2>Saldo Atual</h2>
+            <p id="saldoAtual">R$ 0,00</p>
+        </section>
+
+    </div>
+
+    <section id="movimentacoes">
+        <h2>Movimentações Recentes</h2>
+
+        <a href="cadastro-movimentacao.html" class="btn-cadastrar">
+            + Cadastrar nova movimentação
+        </a>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+            </tr>
+            </thead>
+
+            <tbody>
+
+            <tr>
+                <td>Compra no Supermercado</td>
+                <td>Saída</td>
+                <td class="saida">- R$ 150,00</td>
+            </tr>
+
+            <tr>
+                <td>Salario</td>
+                <td>Entrada</td>
+                <td class="entrada">+ R$ 2500,00</td>
+            </tr>
+
+            <tr>
+                <td>Conta de Energia</td>
+                <td>Saída</td>
+                <td class="saida">- R$ 120,00</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+    <section id="relatorios">
+        <h2>Relatórios</h2>
+        <p>Área destinada aos relatórios financeiros.</p>
+    </section>
+
+</main>
+
+</body>
+</html>
