@@ -58,27 +58,31 @@
                 <th>Descrição</th>
                 <th>Categoria</th>
                 <th>Valor</th>
+                <th>Data</th>
             </tr>
             </thead>
 
-            <tbody>
+            <tbody id ="listaMovimentacoes">
 
             <tr>
                 <td>Compra no Supermercado</td>
                 <td>Saída</td>
                 <td class="saida">- R$ 150,00</td>
+                <td>09/11/2026</td>
             </tr>
 
             <tr>
                 <td>Salario</td>
                 <td>Entrada</td>
                 <td class="entrada">+ R$ 2500,00</td>
+                <td>09/11/2026</td>
             </tr>
 
             <tr>
                 <td>Conta de Energia</td>
                 <td>Saída</td>
                 <td class="saida">- R$ 120,00</td>
+                <td>09/11/2026</td>
             </tr>
 
             </tbody>
@@ -86,11 +90,35 @@
     </section>
 
     <section id="relatorios">
-        <h2>Relatórios</h2>
-        <p>Área destinada aos relatórios financeiros.</p>
+        <h2>Gastos por Categoria</h2>
+
+        <div class="filtros-relatorio">
+            <button id="btnSaidas" class="ativo">Gastos</button>
+            <button id="btnEntradas">Entradas</button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Total Gasto</th>
+            </tr>
+            </thead>
+
+            <tbody id="listaCategorias">
+            </tbody>
+        </table>
     </section>
 
+    <div class="grafico-container">
+        <h2>Distribuição dos Gastos</h2>
+        <canvas id="graficoCategorias"></canvas>
+    </div>
+
 </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/dashboard.js"></script>
 
 </body>
 </html>
