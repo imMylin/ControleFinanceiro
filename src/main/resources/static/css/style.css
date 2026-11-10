@@ -183,3 +183,52 @@ tbody tr:hover {
 .btn-voltar:hover {
     text-decoration: underline;
 }
+
+.mensagem-sucesso {
+    color: #16a34a;
+    background-color: #dcfce7;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.mensagem-erro {
+    color: #dc2626;
+    background-color: #fee2e2;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.grafico-container {
+    background-color: #ffffff;
+    margin-top: 30px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+}
+
+.grafico-container h2 {
+    margin-bottom: 20px;
+    color: #1e293b;
+}
+
+.filtros-relatorio {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filtros-relatorio button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #e2e8f0;
+    color: #334155;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtros-relatorio button.ativo {
+    background-color: #2563eb;
+    color: #ffffff;
+}
