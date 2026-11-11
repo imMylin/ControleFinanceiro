@@ -60,21 +60,6 @@ public class GlobalExceptionHandler {
                 .body(erro);
     }
 
-    @ExceptionHandler(SalarioNaoEncontradoException.class)
-    public ResponseEntity<ErroResponseDTO> tratarSalarioNaoEncontrado(SalarioNaoEncontradoException ex, HttpServletRequest request) {
-
-        ErroResponseDTO erro = new ErroResponseDTO(
-                LocalDateTime.now(),
-                HttpStatus.NOT_FOUND.value(),
-                "Salario não encontrado",
-                ex.getMessage(),
-                request.getRequestURI());
-
-                return ResponseEntity
-                .status(HttpStatus.NOT_FOUND)
-                .body(erro);
-    }
-
     @ExceptionHandler(MovimentacaoNaoEncontrada.class)
     public ResponseEntity<ErroResponseDTO> tratarMovimentacaoNaoEncontrada(
             MovimentacaoNaoEncontrada ex,
