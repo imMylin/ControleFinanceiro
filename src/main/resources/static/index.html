@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -16,9 +15,9 @@
 
 <nav>
     <ul>
-        <li><a href="#inicio">Visão Geral</a></li>
-        <li><a href="#movimentacoes">Movimentações</a></li>
-        <li><a href="#relatorios">Relatórios</a></li>
+        <li><a href="index.html">Visão Geral</a></li>
+        <li><a href="movimentacoes.html">Movimentações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
     </ul>
 </nav>
 
@@ -26,98 +25,34 @@
 
     <h1>Visão Geral</h1>
 
-    <div class = "cards-container">
+    <div class="cards-container">
 
-        <section class = "card">
+        <section class="card">
             <h2>Total de Entradas</h2>
             <p id="totalEntradas">R$ 0,00</p>
         </section>
 
-        <section class = "card">
+        <section class="card">
             <h2>Total de Saídas</h2>
             <p id="totalSaidas">R$ 0,00</p>
         </section>
 
-        <section class = "card">
+        <section class="card">
             <h2>Saldo Atual</h2>
             <p id="saldoAtual">R$ 0,00</p>
         </section>
 
     </div>
 
-    <section id="movimentacoes">
-        <h2>Movimentações Recentes</h2>
-
-        <a href="cadastro-movimentacao.html" class="btn-cadastrar">
-            + Cadastrar nova movimentação
-        </a>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Descrição</th>
-                <th>Categoria</th>
-                <th>Valor</th>
-                <th>Data</th>
-            </tr>
-            </thead>
-
-            <tbody id ="listaMovimentacoes">
-
-            <tr>
-                <td>Compra no Supermercado</td>
-                <td>Saída</td>
-                <td class="saida">- R$ 150,00</td>
-                <td>09/11/2026</td>
-            </tr>
-
-            <tr>
-                <td>Salario</td>
-                <td>Entrada</td>
-                <td class="entrada">+ R$ 2500,00</td>
-                <td>09/11/2026</td>
-            </tr>
-
-            <tr>
-                <td>Conta de Energia</td>
-                <td>Saída</td>
-                <td class="saida">- R$ 120,00</td>
-                <td>09/11/2026</td>
-            </tr>
-
-            </tbody>
-        </table>
-    </section>
-
-    <section id="relatorios">
-        <h2>Gastos por Categoria</h2>
-
-        <div class="filtros-relatorio">
-            <button id="btnSaidas" class="ativo">Gastos</button>
-            <button id="btnEntradas">Entradas</button>
-        </div>
-
-        <table>
-            <thead>
-            <tr>
-                <th>Categoria</th>
-                <th>Total Gasto</th>
-            </tr>
-            </thead>
-
-            <tbody id="listaCategorias">
-            </tbody>
-        </table>
-    </section>
-
-    <div class="grafico-container">
+    <section class="grafico-container">
         <h2>Distribuição dos Gastos</h2>
         <canvas id="graficoCategorias"></canvas>
-    </div>
+    </section>
 
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 <script src="js/dashboard.js"></script>
 
 </body>
