@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios - Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Controle Financeiro</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Visão Geral</a></li>
+        <li><a href="movimentacoes.html">Movimentações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+    </ul>
+</nav>
+
+<main>
+    <h1>Relatórios Financeiros</h1>
+
+    <!-- Relatório por categoria -->
+    <section id="relatorioCategorias">
+
+        <h2>Relatório por Categoria</h2>
+
+        <div class="filtros-relatorio">
+            <button id="btnSaidas" type="button">
+                Saídas
+            </button>
+
+            <button id="btnEntradas" type="button">
+                Entradas
+            </button>
+        </div>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Valor Total</th>
+            </tr>
+            </thead>
+
+            <tbody id="listaCategorias">
+            </tbody>
+        </table>
+
+    </section>
+
+    <section id="relatorioPeriodo">
+
+        <h2>Relatório por Período</h2>
+
+        <div class="periodo-layout">
+
+            <div class="filtro-periodo">
+
+                <label for="dataInicial">Data inicial:</label>
+                <input type="date" id="dataInicial">
+
+                <label for="dataFinal">Data final:</label>
+                <input type="date" id="dataFinal">
+
+                <button id="btnFiltrarPeriodo" type="button">
+                    Filtrar
+                </button>
+
+            </div>
+
+            <div class="resultado-periodo">
+
+                <div class="card">
+                    <h3>Total de Entradas</h3>
+                    <p id="periodoEntradas">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>Total de Saídas</h3>
+                    <p id="periodoSaidas">R$ 0,00</p>
+                </div>
+
+                <div class="card">
+                    <h3>Saldo do Período</h3>
+                    <p id="periodoSaldo">R$ 0,00</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <p id="mensagemPeriodo"></p>
+
+    </section>
+
+</main>
+
+<script src="js/relatorios.js"></script>
+
+</body>
+</html>
