@@ -39,7 +39,7 @@ formMovimentacao.addEventListener("submit", function(event) {
 
                     formMovimentacao.reset();
                     setTimeout(() => {
-                        window.location.href = "index.html";
+                        window.location.href = "movimentacoes.html";
                     }, 3000);
                 } else {
                     mensagem.textContent = dados.mensagem;
