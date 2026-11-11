@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movimentações - Controle Financeiro</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Controle Financeiro</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Visão Geral</a></li>
+        <li><a href="movimentacoes.html">Movimentações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <h1>Movimentações</h1>
+
+    <a href="cadastro-movimentacao.html" class="btn-cadastrar">
+        + Nova movimentação
+    </a>
+
+    <section id="movimentacoes">
+
+        <h2>Movimentações Recentes</h2>
+
+        <table>
+            <thead>
+            <tr>
+                <th>Descrição</th>
+                <th>Categoria</th>
+                <th>Valor</th>
+                <th>Data</th>
+                <th>Ações</th>
+            </tr>
+            </thead>
+
+            <tbody id="listaMovimentacoes">
+            </tbody>
+        </table>
+
+    </section>
+
+</main>
+
+<script src="js/movimentacoes.js"></script>
+
+</body>
+</html>
