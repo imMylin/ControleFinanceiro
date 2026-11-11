@@ -92,6 +92,9 @@ function carregarGrafico() {
                         label: "Total por categoria",
                         data: valores,
 
+                        cutout: "65%",
+                        radius: "85%",
+
                         backgroundColor: [
                             "#2563eb",
                             "#16a34a",
@@ -112,10 +115,43 @@ function carregarGrafico() {
                     responsive: true,
                     maintainAspectRatio: false,
 
+                    layout: {
+                        padding: {
+                            top: 10,
+                            bottom: 15,
+                            left: 10,
+                            right: 10
+                        }
+                    },
+
                     plugins: {
 
                         legend: {
-                            position: "bottom"
+                            position: "bottom",
+                            align: "center",
+                            labels: {
+                                color: "#BDBDBD",
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: "circle",
+                                font: {
+                                    size: 15
+                                }
+                            }
+                        },
+
+                        tooltip: {
+                            backgroundColor: "rgba(25, 25, 29, 0.92)",
+                            titleColor: "#FFFFFF",
+                            bodyColor: "#D4D4D4",
+                            borderColor: "rgba(255, 255, 255, 0.22)",
+                            borderWidth: 1,
+                            padding: 12,
+                            cornerRadius: 10,
+                            displayColors: true,
+                            titleFont: {
+                                weight: "bold"
+                            }
                         },
 
                         datalabels: {
