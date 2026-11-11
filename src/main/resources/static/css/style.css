@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -10,25 +9,30 @@ body {
     background-color: #f4f6f9;
     color: #333;
 }
-header{
+
+header {
     background-color: #1e293b;
     color: #f4f6f9;
     padding: 20px;
 }
-nav{
+
+nav {
     background-color: #fff;
     padding: 15px;
 }
-nav ul{
+
+nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
+
 nav ul li a {
     text-decoration: none;
     color: #334155;
     font-weight: bold;
 }
+
 nav ul li a:hover {
     color: #2563eb;
 }
@@ -41,6 +45,7 @@ main h1 {
     margin-bottom: 25px;
     color: #1e293b;
 }
+
 .card {
     background-color: #ffffff;
     padding: 25px;
@@ -84,7 +89,8 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
@@ -111,12 +117,11 @@ tbody tr:hover {
 
 #cadastro {
     background-color: #ffffff;
-    margin-top: 30px;
+    margin: 30px auto;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     max-width: 700px;
-    margin: 30px auto;
 }
 
 #cadastro h2 {
@@ -172,16 +177,25 @@ tbody tr:hover {
     background-color: #1d4ed8;
 }
 
+.topo-cadastro {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
 .btn-voltar {
     display: inline-block;
-    margin-bottom: 20px;
-    color: #2563eb;
+    background-color: #334155;
+    color: #ffffff;
+    padding: 11px 18px;
+    border-radius: 8px;
     text-decoration: none;
     font-weight: bold;
+    transition: background-color 0.2s;
 }
 
 .btn-voltar:hover {
-    text-decoration: underline;
+    background-color: #1e293b;
 }
 
 .mensagem-sucesso {
@@ -199,12 +213,15 @@ tbody tr:hover {
 }
 
 .grafico-container {
+    position: relative;
     background-color: #ffffff;
-    margin-top: 30px;
-    padding: 25px;
+    margin: 30px auto;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    max-width: 600px;
+    width: 100%;
+    max-width: 550px;
+    height: 350px;
 }
 
 .grafico-container h2 {
@@ -212,9 +229,23 @@ tbody tr:hover {
     color: #1e293b;
 }
 
+#relatorioCategorias {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-bottom: 45px;
+}
+
+#relatorioCategorias h2,
+#relatorioPeriodo h2 {
+    color: #1e293b;
+    margin-bottom: 25px;
+}
+
 .filtros-relatorio {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
@@ -228,7 +259,93 @@ tbody tr:hover {
     font-weight: bold;
 }
 
+.filtros-relatorio button:hover {
+    background-color: #cbd5e1;
+}
+
 .filtros-relatorio button.ativo {
     background-color: #2563eb;
     color: #ffffff;
+}
+
+#relatorioPeriodo {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 35px;
+}
+
+.periodo-layout {
+    display: flex;
+    align-items: stretch;
+    gap: 25px;
+}
+
+.filtro-periodo {
+    flex: 0 0 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.filtro-periodo label {
+    font-weight: bold;
+    color: #475569;
+}
+
+.filtro-periodo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.filtro-periodo button {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filtro-periodo button:hover {
+    background-color: #1d4ed8;
+}
+
+.resultado-periodo {
+    flex: 1;
+    display: flex;
+    gap: 15px;
+    margin-top: 0;
+    padding: 0;
+    background-color: transparent;
+    line-height: normal;
+}
+
+.resultado-periodo .card {
+    min-width: 0;
+    padding: 20px;
+}
+
+.resultado-periodo .card h3 {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 15px;
+}
+
+.resultado-periodo .card p {
+    font-size: 21px;
+    color: #1e293b;
+    overflow-wrap: anywhere;
+}
+
+#mensagemPeriodo {
+    margin-top: 15px;
+    color: #dc2626;
 }
