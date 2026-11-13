@@ -18,6 +18,11 @@ function formatarMoeda(valor) {
         currency: "BRL"
     }).format(valor);
 }
+function editarMovimentacao(id) {
+
+    window.location.href = `editar-movimentacao.html?id=${id}`;
+
+}
 
 function carregarMovimentacoes() {
 
@@ -52,14 +57,25 @@ function carregarMovimentacoes() {
                         <td>${nomesCategorias[movimentacao.categoriaGasto] || movimentacao.categoriaGasto}</td>
                         <td class="${classeTipo}">${valorFormatado}</td>
                         <td>${dataFormatada}</td>
-                        <td>
-                            <button onclick="excluirMovimentacao(${movimentacao.id})">
-                                Excluir
+                        <td class="acoes">
+                            <button
+                                class="btn-editar"
+                                onclick="editarMovimentacao(${movimentacao.id})"
+                                title="Editar movimentação">
+                                <i data-lucide="pencil"></i>
+                            </button>
+                        
+                            <button
+                                class="btn-excluir"
+                                onclick="excluirMovimentacao(${movimentacao.id})"
+                                title="Excluir movimentação">
+                                <i data-lucide="trash-2"></i>
                             </button>
                         </td>
                     </tr>
                 `;
             });
+            lucide.createIcons();
         })
         .catch(error => {
             console.error("Erro ao buscar movimentações:", error);
