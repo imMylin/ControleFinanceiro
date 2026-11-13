@@ -613,22 +613,34 @@ tbody tr:last-child td {
     color: #F87171;
 }
 
-#movimentacoes tbody button {
-    background: rgba(127, 29, 29, 0.25);
-    color: #FCA5A5;
-    border: 1px solid rgba(248, 113, 113, 0.25);
-    padding: 8px 14px;
-    border-radius: 7px;
-    font-weight: bold;
+#movimentacoes tbody .acoes button {
+    background: rgba(12, 18, 29, 0.54);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+    color: #D4D4D4;
+    padding: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
 }
 
-#movimentacoes tbody button:hover {
-    background: rgba(185, 28, 28, 0.35);
-    border-color: rgba(248, 113, 113, 0.55);
-    color: #FFFFFF;
-    box-shadow: 0 4px 14px rgba(127, 29, 29, 0.2);
+#movimentacoes tbody .acoes .btn-editar {
+    color: #60A5FA;
+}
+
+#movimentacoes tbody .acoes .btn-excluir {
+    color: #F87171;
+}
+
+#movimentacoes tbody .acoes .btn-editar:hover {
+    background: rgba(59, 130, 246, 0.18);
+    border-color: rgba(96, 165, 250, 0.6);
+    transform: translateY(-2px);
+}
+
+#movimentacoes tbody .acoes .btn-excluir:hover {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(248, 113, 113, 0.6);
+    transform: translateY(-2px);
 }
 
 button:active,
@@ -654,4 +666,57 @@ button:disabled {
     cursor: not-allowed;
     transform: none;
     box-shadow: none;
+}
+
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.acoes button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: rgba(12, 18, 29, 0.54);
+
+    border: 1px solid rgba(255, 255, 255, 0.20);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    transition: all 0.3s ease;
+}
+
+.acoes button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-editar {
+    color: #60A5FA;
+}
+
+.btn-excluir {
+    color: #F87171;
+}
+
+.btn-editar:hover {
+    background: rgba(59, 130, 246, 0.18);
+    border-color: rgba(96, 165, 250, 0.6);
+    transform: translateY(-2px);
+}
+
+.btn-excluir:hover {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(248, 113, 113, 0.6);
+    transform: translateY(-2px);
 }
