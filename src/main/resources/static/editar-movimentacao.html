@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Movimentação - Controle Financeiro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Controle Financeiro</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="index.html">Visão Geral</a></li>
+        <li><a href="movimentacoes.html">Movimentações</a></li>
+        <li><a href="relatorios.html">Relatórios</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <div class="topo-cadastro">
+        <a href="movimentacoes.html" class="btn-voltar">
+            ← Voltar para movimentações
+        </a>
+    </div>
+
+    <h1>Editar movimentação</h1>
+
+    <section id="cadastro">
+        <h2>Atualizar movimentação</h2>
+
+        <form id="formMovimentacao">
+
+            <label for="descricao">Descrição:</label>
+            <input type="text" id="descricao" required>
+
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" required>
+                <option value="">Selecione</option>
+                <option value="ENTRADA">Entrada</option>
+                <option value="SAIDA">Saída</option>
+            </select>
+
+            <label for="categoria">Categoria:</label>
+            <select id="categoria" required>
+                <option value="">Selecione</option>
+                <option value="ALIMENTACAO">Alimentação</option>
+                <option value="TRANSPORTE">Transporte</option>
+                <option value="MORADIA">Moradia</option>
+                <option value="SAUDE">Saúde</option>
+                <option value="EDUCACAO">Educação</option>
+                <option value="LAZER">Lazer</option>
+                <option value="ASSINATURAS">Assinaturas</option>
+                <option value="COMPRAS">Compras</option>
+                <option value="OUTROS">Outros</option>
+            </select>
+
+            <label for="valor">Valor:</label>
+            <input type="number" id="valor" step="0.01" min="0.01" required>
+
+            <label for="data">Data:</label>
+            <input type="date" id="data" required>
+
+            <button type="submit">Salvar alterações</button>
+
+        </form>
+
+        <p id="mensagem"></p>
+
+    </section>
+</main>
+
+<script src="js/editar-movimentacao.js"></script>
+
+</body>
+</html>
