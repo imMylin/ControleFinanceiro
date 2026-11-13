@@ -4,7 +4,7 @@ O projeto permite registrar entradas e saídas, acompanhar o saldo e consultar i
 ### Funcionalidades:
 
 - Cadastro de movimentações financeiras.
-- Listagem e exclusão de movimentações.
+- Listagem, exclusão e alteração de movimentações.
 - Classificação das movimentações como entrada ou saída.
 - Organização por categorias de gastos.
 - Dashboard com resumo de entradas, saídas e saldo.
